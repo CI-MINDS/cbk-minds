@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Dr. Chandra B. Kumar — One‑to‑One Career Mentorship</title>
+<meta content="Personalized one‑to‑one career mentorship by Dr. Chandra B. Kumar — 20 years of excellence, 1.5 lakh+ students guided globally." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --bg:#0b0d11;           /* elegant deep background */
+      --card:#11141a;         /* card background */
+      --text:#e8eef6;         /* main text */
+      --muted:#a9b4c3;        /* secondary text */
+      --brand:#4da3ff;        /* primary brand blue */
+      --brand-2:#8ad0ff;      /* accent gradient */
+      --ok:#25c59c;
+      --warn:#f5c14b;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0a0c10 0%,#0e1218 60%,#0b0d11 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(11,13,17,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:.3px}
+    .logo-mark{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 200deg, var(--brand), var(--brand-2));box-shadow:0 6px 20px rgba(77,163,255,.35)}
+    .menu{display:flex;gap:20px;align-items:center}
+    .menu a{color:var(--muted);font-weight:500}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(77,163,255,.18),rgba(77,163,255,.08));color:var(--text);font-weight:600;box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px);}
+    .btn.secondary{background:transparent;color:var(--text)}
+    /* Hero */
+    .hero{padding:72px 0 32px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+    .eyebrow{display:inline-block;padding:6px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--brand-2);font-weight:600;background:rgba(141,208,255,.08)}
+    h1{font-size:44px;line-height:1.15;margin:14px 0 10px;letter-spacing:-.5px}
+    .lead{font-size:18px;color:var(--muted);max-width:60ch}
+    .cta{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+    .stat{padding:18px;text-align:center}
+    .stat h3{margin:0;font-size:28px}
+    .stat p{margin:6px 0 0;color:var(--muted)}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(141,208,255,.1);border:1px solid rgba(141,208,255,.25);color:#d9f0ff;font-weight:600}
+    /* Sections */
+    section{padding:56px 0}
+    h2{font-size:30px;margin:0 0 10px}
+    .sub{color:var(--muted);margin:0 0 22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .item{padding:18px}
+    .item h4{margin:0 0 8px}
+    .pill{display:inline-block;margin:6px 6px 0 0;padding:8px 12px;border-radius:999px;background:#0d1219;border:1px solid rgba(255,255,255,.08);color:var(--muted);font-weight:600}
+    /* Profile */
+    .profile{display:grid;grid-template-columns:.7fr 1.3fr;gap:22px;align-items:start}
+    .profile .card{padding:22px}
+    .quote{font-style:italic;color:#d7e8ff}
+    /* Contact */
+    form{display:grid;gap:12px}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:#0c1016;color:var(--text)}
+    textarea{min-height:120px;resize:vertical}
+    .small{color:var(--muted);font-size:14px}
+    /* Footer */
+    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .grid-4{grid-template-columns:1fr 1fr}
+      .profile{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      h1{font-size:34px}
+      .grid-3,.grid-4{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr}
+    }
+  
+/* === Slideshow Text Animation === */
+    .slideshow {
+      position: relative;
+      height: 100px; /* adjust based on text size */
+      overflow: hidden;
+    }
+    .slideshow span {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      text-align: left;
+      animation: slideFade 16s infinite;
+    }
+    .slideshow span:nth-child(1) { animation-delay: 0s; }
+    .slideshow span:nth-child(2) { animation-delay: 4s; }
+    .slideshow span:nth-child(3) { animation-delay: 8s; }
+    .slideshow span:nth-child(4) { animation-delay: 12s; }
+
+    @keyframes slideFade {
+      0% { opacity: 0; transform: translateY(30px); }
+      5% { opacity: 1; transform: translateY(0); }
+      25% { opacity: 1; transform: translateY(0); }
+      30% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 0; }
+    }
+  </style></style>
+</head>
+<body>
+<header>
+<div class="container nav">
+<div class="logo">
+<div aria-hidden="true" class="logo-mark"></div>
+<span>Dr. Chandra B. Kumar Mentorship</span>
+</div>
+<nav aria-label="Primary" class="menu">
+<a href="#about">About</a>
+<a href="#elements">Key Elements</a>
+<a href="#benefits">Benefits</a>
+<a href="#focus2025">2025</a>
+<a class="btn" href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+<main>
+<!-- Hero -->
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<span class="eyebrow">One-to-One Career Mentorship</span>
+<!-- Slideshow Headline -->
+<h1 class="slideshow">
+<span>Personalized guidance for accelerated growth, skills, and a clearer career path.</span>
+<span>Unlock your potential with tailored one-to-one mentorship.</span>
+<span>Build confidence, clarity, and career acceleration.</span>
+<span>20+ years of mentorship excellence, 1.5 lakh+ students guided globally.</span>
+</h1>
+<p class="lead">Dr. Chandra B. Kumar has dedicated <strong>20+ years</strong> to mentoring and guiding <strong>1.5 lakh+ students</strong> globally. Get tailored advice aligned with your goals and challenges.</p>
+<div class="cta">
+<a class="btn" href="#contact">Book 1:1 Mentorship</a>
+<a class="btn secondary" href="mailto:prithvixzzz@gmail.com?subject=Inquiry%20for%20One-to-One%20Mentorship&amp;body=Hi%20Dr.%20Kumar%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20mentorship.%0AName%3A%20%0AEmail%3A%20%0APhone%3A%20%0AGoals%3A%20%0A%0AThanks!">Email Directly</a>
+</div>
+<div class="stats">
+<div class="card stat">
+<h3>20+ yrs</h3><p>Career Mentoring Excellence</p>
+</div>
+<div class="card stat">
+<h3>1,50,000+</h3><p>Students Mentored</p>
+</div>
+<div class="card stat">
+<h3>Global</h3><p>Guidance Across Regions</p>
+</div>
+</div>
+</div>
+<div>
+<div class="card" style="padding:20px">
+<span class="badge" title="Recognition"><svg aria-hidden="true" fill="none" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.39 4.84L20 7.27l-3.9 3.8.92 5.36L12 14.77l-5.02 2.66.92-5.36L4 7.27l5.61-.43L12 2z" stroke="currentColor" stroke-width="1.5"></path></svg> Proven Impact</span>
+<h2 style="margin-top:14px">What you get</h2>
+<ul class="small">
+<li>Clarity on next career steps and roadmaps.</li>
+<li>Skill enhancement, leadership development, and recognition.</li>
+<li>Warm introductions and network expansion where appropriate.</li>
+<li>Continuous learning with measurable goals.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- About / Profile -->
+<section id="about">
+<div class="container profile">
+<div class="card">
+<h2>About Dr. Chandra B. Kumar</h2>
+
+<p class="sub">My mission is simple: to motivate, mentor, and guide individuals toward meaningful growth, professional opportunities, and lifelong success.</p>
+
+  <p class="quote">"Mentorship should be personal, practical, and focused on momentum — one decision at a time."</p>
+</div>
+<div class="card">
+<h3>Expertise Snapshot</h3>
+<div class="grid-4">
+<div class="item"><h4>Career Guidance</h4><p class="small">Clear roadmaps and decision support.</p></div>
+<div class="item"><h4>Leadership</h4><p class="small">Lead with confidence and influence.</p></div>
+<div class="item"><h4>Talent Dev.</h4><p class="small">Identify strengths and close gaps.</p></div>
+<div class="item"><h4>Knowledge Transfer</h4><p class="small">Actionable frameworks and playbooks.</p></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Elements -->
+<section id="elements">
+<div class="container">
+<h2>Key Elements of One‑to‑One Mentorship</h2>
+<p class="sub">Accelerated growth • Skill enhancement • Clearer career paths</p>
+<div class="grid-4">
+<div class="card item"><h4>1) Personalized Focus</h4><p class="small">Tailored plans aligned to your goals.</p></div>
+<div class="card item"><h4>2) Personal Fulfillment</h4><p class="small">Find meaningful direction.</p></div>
+<div class="card item"><h4>3) Guidance &amp; Support</h4><p class="small">Ongoing feedback and clarity.</p></div>
+<div class="card item"><h4>4) Goal‑Oriented</h4><p class="small">Milestones with outcomes tracked.</p></div>
+<div class="card item"><h4>5) Leadership Dev.</h4><p class="small">Grow executive presence.</p></div>
+<div class="card item"><h4>6) Network Expansion</h4><p class="small">Access to relevant circles.</p></div>
+<div class="card item"><h4>7) Recognition</h4><p class="small">Positioning, portfolio, and visibility.</p></div>
+<div class="card item"><h4>8) Continuous Learning</h4><p class="small">Iterate with feedback loops.</p></div>
+<div class="card item"><h4>9) Talent Development</h4><p class="small">Upskill with structured practice.</p></div>
+<div class="card item"><h4>10) Knowledge Transfer</h4><p class="small">Tools, templates, and frameworks.</p></div>
+</div>
+</div>
+</section>
+<!-- Benefits -->
+<section id="benefits">
+<div class="container">
+<h2>Benefits for the Mentee</h2>
+<div class="grid-3">
+<div class="card item"><h4>Valuable Insight</h4><p class="small">Direct access to 20 years of experience and proven strategies.</p></div>
+<div class="card item"><h4>Skill Growth</h4><p class="small">Practical upskilling plans and weekly checkpoints.</p></div>
+<div class="card item"><h4>Confidence</h4><p class="small">Motivation through momentum and visible wins.</p></div>
+</div>
+</div>
+</section>
+<!-- 2025 Focus -->
+<section id="focus2025">
+<div class="container">
+<h2>2025 Focus — Leadership Transformation</h2>
+<p class="sub">Sharpen your edge for the opportunities ahead.</p>
+<div>
+<span class="pill">Career Guidance</span>
+<span class="pill">Personalised Focus</span>
+<span class="pill">Talent Development</span>
+<span class="pill">Personal Development</span>
+<span class="pill">Career Opportunities</span>
+<span class="pill">Knowledge Transfer</span>
+<span class="pill">One‑to‑one Mentorship</span>
+</div>
+</div>
+</section>
+<!-- Contact -->
+<section id="contact">
+<div class="container">
+<div class="card" style="padding:22px">
+<h2>Contact &amp; Booking</h2>
+<p class="sub">Send a message — replies go to <strong>prithvixzzz@gmail.com</strong>.</p>
+<form action="https://formsubmit.co/prithvixzzz@gmail.com" method="POST" id="contact-form">
+  <input type="hidden" name="_captcha" value="false">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <input aria-label="Full name" name="name" placeholder="Full name" required type="text"/>
+    <input aria-label="Email" name="email" placeholder="Email" required type="email"/>
+  </div>
+  <input aria-label="Phone" name="phone" placeholder="Phone (optional)" type="tel"/>
+  <textarea aria-label="Your message" name="message" placeholder="Tell us your goals, timeline, and current stage..." required rows="4"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn" type="submit">Send Message</button>
+    <a class="btn secondary" href="mailto:prithvixzzz@gmail.com?subject=Inquiry%20for%20One-to-One%20Mentorship" rel="noopener" target="_blank">Open Email App</a>
+  </div>
+  
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+<div>© <span id="year"></span> Dr. Chandra B. Kumar Mentorship. All rights reserved.</div>
+<div class="small">Built with accessibility and performance in mind.</div>
+</div>
+</footer>
+<!-- Lightweight, no‑dependency JS -->
+<script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for same‑page links (simple, native)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+  </script>
+<!-- Structured data for better SEO -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Dr. Chandra B. Kumar — Career Mentorship",
+    "description": "One‑to‑one personalized career mentorship with 20 years of excellence and 1.5 lakh+ students guided globally.",
+    "areaServed": "Worldwide",
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. Chandra B. Kumar",
+      "jobTitle": "Dean — Training & Placement (SD&P); Innovative Ambassador, IIC, MoE"
+    },
+    "sameAs": [],
+    "email": "mailto:prithvixzzz@gmail.com"
+  }
+  </script>
+</body>
+</html>
