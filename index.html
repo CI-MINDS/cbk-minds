@@ -142,7 +142,7 @@
 <div class="container nav">
 <div class="logo">
 <div aria-hidden="true" class="logo-mark"></div>
-<span>Dr. Chandra B. Kumar Mentorship</span>
+<span>img src=logo</span>
 </div>
 <nav aria-label="Primary" class="menu">
 <a href="#about">About</a>
@@ -265,65 +265,26 @@
 </div>
 </section>
 <!-- Contact -->
-<section id="contact">
-<div class="container">
-<div class="card" style="padding:22px">
-<h2>Contact &amp; Booking</h2>
-<p class="sub">Send a message — replies go to <strong>prithvixzzz@gmail.com</strong>.</p>
-<form action="https://formsubmit.co/prithvixzzz@gmail.com" method="POST" id="contact-form">
-  <input type="hidden" name="_captcha" value="false">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-    <input aria-label="Full name" name="name" placeholder="Full name" required type="text"/>
-    <input aria-label="Email" name="email" placeholder="Email" required type="email"/>
-  </div>
-  <input aria-label="Phone" name="phone" placeholder="Phone (optional)" type="tel"/>
-  <textarea aria-label="Your message" name="message" placeholder="Tell us your goals, timeline, and current stage..." required rows="4"></textarea>
-  <div style="display:flex;gap:10px;flex-wrap:wrap">
-    <button class="btn" type="submit">Send Message</button>
-    <a class="btn secondary" href="mailto:prithvixzzz@gmail.com?subject=Inquiry%20for%20One-to-One%20Mentorship" rel="noopener" target="_blank">Open Email App</a>
-  </div>
-  <p class="small">Your message will be sent directly to Dr. Kumar's team via Formsubmit.</p>
+<form action="https://formsubmit.co/prithvixzzz@gmail.com" method="POST" id="contact-form" class="grid grid-cols-1 gap-y-6">
+    <input type="hidden" name="_captcha" value="false">
+    <div>
+        <label for="name" class="sr-only">Full name</label>
+        <input type="text" name="name" id="name" required placeholder="Full name"
+            class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 bg-[var(--card)] border-[var(--border)] rounded-md focus:ring-[var(--primary)] focus:border-[var(--primary)] text-[var(--text)]">
+    </div>
+    <div>
+        <label for="email" class="sr-only">Email</label>
+        <input id="email" name="email" type="email" required placeholder="Email address"
+            class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 bg-[var(--card)] border-[var(--border)] rounded-md focus:ring-[var(--primary)] focus:border-[var(--primary)] text-[var(--text)]">
+    </div>
+    <div>
+        <label for="message" class="sr-only">Message</label>
+        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project..."
+            class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 bg-[var(--card)] border-[var(--border)] rounded-md focus:ring-[var(--primary)] focus:border-[var(--primary)] text-[var(--text)]"></textarea>
+    </div>
+    <div>
+        <button type="submit" class="w-full justify-center py-4 px-6 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[var(--primary)] hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary)] ring-offset-[var(--bg)]">Send Message</button>
+    </div>
 </form>
-</div>
-</div>
-</section>
-</main>
-<footer>
-<div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-<div>© <span id="year"></span> Dr. Chandra B. Kumar Mentorship. All rights reserved.</div>
-<div class="small">Built with accessibility and performance in mind.</div>
-</div>
-</footer>
-<!-- Lightweight, no‑dependency JS -->
-<script>
-    // Current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Smooth scroll for same‑page links (simple, native)
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
-      });
-    });
-  </script>
-<!-- Structured data for better SEO -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Dr. Chandra B. Kumar — Career Mentorship",
-    "description": "One‑to‑one personalized career mentorship with 20 years of excellence and 1.5 lakh+ students guided globally.",
-    "areaServed": "Worldwide",
-    "founder": {
-      "@type": "Person",
-      "name": "Dr. Chandra B. Kumar",
-      "jobTitle": "Dean — Training & Placement (SD&P); Innovative Ambassador, IIC, MoE"
-    },
-    "sameAs": [],
-    "email": "mailto:prithvixzzz@gmail.com"
-  }
-  </script>
 </body>
 </html>
