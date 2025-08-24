@@ -23,7 +23,37 @@
       --max:1200px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0a0c10 0%,#0e1218 60%,#0b0d11 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    
+    /* Body with dotted background */
+    html,body{
+      margin:0;
+      padding:0;
+      /* Dotted background with gradient overlay */
+      background: 
+        radial-gradient(circle at 15px 15px, rgba(255,255,255,0.03) 1.5px, transparent 1px),
+        linear-gradient(180deg,#0a0c10 0%,#0e1218 60%,#0b0d11 100%);
+      background-size: 30px 30px, 100% 100%;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.6;
+      position: relative;
+    }
+    
+    /* Optional pseudo-element for more control over the dotted pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 15px 15px, rgba(255,255,255,0.03) 1.5px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: -1;
+    }
+    
     a{color:var(--brand);text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--max);margin:0 auto;padding:0 24px}
@@ -41,7 +71,46 @@
     .hero{padding:72px 0 32px}
     .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
     .eyebrow{display:inline-block;padding:6px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:var(--brand-2);font-weight:600;background:rgba(141,208,255,.08)}
-    h1{font-size:44px;line-height:1.15;margin:14px 0 10px;letter-spacing:-.5px}
+    
+    /* Updated Slideshow Styles for Mobile Responsiveness */
+    .slideshow-container {
+      position: relative;
+      height: auto;
+      min-height: 140px;
+      margin: 14px 0 10px;
+      overflow: hidden;
+    }
+    
+    .slideshow {
+      position: relative;
+      height: 100%;
+    }
+    
+    .slideshow span {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      text-align: left;
+      animation: slideFade 16s infinite;
+      font-size: 44px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin: 0;
+    }
+    
+    .slideshow span:nth-child(1) { animation-delay: 0s; }
+    .slideshow span:nth-child(2) { animation-delay: 4s; }
+    .slideshow span:nth-child(3) { animation-delay: 8s; }
+    .slideshow span:nth-child(4) { animation-delay: 12s; }
+
+    @keyframes slideFade {
+      0% { opacity: 0; transform: translateY(30px); }
+      5% { opacity: 1; transform: translateY(0); }
+      25% { opacity: 1; transform: translateY(0); }
+      30% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 0; }
+    }
+    
     .lead{font-size:18px;color:var(--muted);max-width:60ch}
     .cta{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
     .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
@@ -70,48 +139,6 @@
     .small{color:var(--muted);font-size:14px}
     /* Footer */
     footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr 1fr}
-      .grid-4{grid-template-columns:1fr 1fr}
-      .profile{grid-template-columns:1fr}
-    }
-    @media (max-width:640px){
-      h1{font-size:34px}
-      .grid-3,.grid-4{grid-template-columns:1fr}
-      .stats{grid-template-columns:1fr 1fr}
-      .menu { gap: 12px; }
-      .menu a { font-size: 14px; }
-      .hero { padding: 40px 0 20px; }
-      section { padding: 40px 0; }
-    }
-  
-    /* === Slideshow Text Animation === */
-    .slideshow {
-      position: relative;
-      height: 100px; /* adjust based on text size */
-      overflow: hidden;
-    }
-    .slideshow span {
-      position: absolute;
-      opacity: 0;
-      width: 100%;
-      text-align: left;
-      animation: slideFade 16s infinite;
-    }
-    .slideshow span:nth-child(1) { animation-delay: 0s; }
-    .slideshow span:nth-child(2) { animation-delay: 4s; }
-    .slideshow span:nth-child(3) { animation-delay: 8s; }
-    .slideshow span:nth-child(4) { animation-delay: 12s; }
-
-    @keyframes slideFade {
-      0% { opacity: 0; transform: translateY(30px); }
-      5% { opacity: 1; transform: translateY(0); }
-      25% { opacity: 1; transform: translateY(0); }
-      30% { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 0; }
-    }
     
     /* === Shiny, Breathing Animation for Proven Impact Badge === */
     @keyframes shiny-breathing {
@@ -135,15 +162,78 @@
       background-size: 200% auto;
       background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     }
+  
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .grid-4{grid-template-columns:1fr 1fr}
+      .profile{grid-template-columns:1fr}
+      
+      /* Tablet slideshow adjustments */
+      .slideshow-container {
+        min-height: 160px;
+      }
+      
+      .slideshow span {
+        font-size: 38px;
+      }
+    }
+    
+    @media (max-width:640px){
+      .grid-3,.grid-4{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr}
+      .menu { gap: 12px; }
+      .menu a { font-size: 14px; }
+      .hero { padding: 40px 0 20px; }
+      section { padding: 40px 0; }
+      
+      /* Mobile slideshow adjustments */
+      .slideshow-container {
+        min-height: 200px;
+      }
+      
+      .slideshow span {
+        font-size: 32px;
+        line-height: 1.2;
+      }
+      
+      .lead {
+        font-size: 16px;
+      }
+    }
+    
+    @media (max-width:480px){
+      /* Small mobile adjustments */
+      .slideshow-container {
+        min-height: 220px;
+      }
+      
+      .slideshow span {
+        font-size: 28px;
+        line-height: 1.3;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
 <header>
-<div class="container nav">
-<div class="logo">
-<div aria-hidden="true" class="logo-mark"></div>
-<span>img src=logo</span>
-</div>
+<div class="container nav"> <img src="logo.png">
+
 <nav aria-label="Primary" class="menu">
 <a href="#about">About</a>
 <a href="#elements">Key Elements</a>
@@ -158,14 +248,18 @@
 <section class="hero">
 <div class="container hero-grid">
 <div>
-<span class="eyebrow">One-to-One Career Mentorship</span>
-<!-- Slideshow Headline -->
-<h1 class="slideshow">
-<span>Personalized guidance for accelerated growth, skills, and a clearer career path.</span>
-<span>Unlock your potential with tailored one-to-one mentorship.</span>
-<span>Build confidence, clarity, and career acceleration.</span>
-<span>20+ years of mentorship excellence, 1.5 lakh+ students guided globally.</span>
-</h1>
+<span class="eyebrow">One-to-One Career Mentorship</span><br>
+
+<!-- Updated Slideshow Headline with container -->
+<div class="slideshow-container">
+  <h1 class="slideshow">
+    <span>Personalized guidance for accelerated growth, skills, and a clearer career path.</span>
+    <span>Unlock your potential with tailored one-to-one mentorship.</span>
+    <span>Build confidence, clarity, and career acceleration.</span>
+    <span>20+ years of mentorship excellence, 1.5 lakh+ students guided globally.</span>
+  </h1>
+</div>
+
 <p class="lead">Dr. Chandra B. Kumar has dedicated <strong>20+ years</strong> to mentoring and guiding <strong>1.5 lakh+ students</strong> globally. Get tailored advice aligned with your goals and challenges.</p>
 <div class="cta">
 <a class="btn" href="#contact">Book 1:1 Mentorship</a>
@@ -188,10 +282,11 @@
 <span class="badge" title="Recognition"><svg aria-hidden="true" fill="none" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.39 4.84L20 7.27l-3.9 3.8.92 5.36L12 14.77l-5.02 2.66.92-5.36L4 7.27l5.61-.43L12 2z" stroke="currentColor" stroke-width="1.5"></path></svg> Proven Impact</span>
 <h2 style="margin-top:14px">What you get</h2>
 <ul class="small">
-<li>Clarity on next career steps and roadmaps.</li>
-<li>Skill enhancement, leadership development, and recognition.</li>
-<li>Warm introductions and network expansion where appropriate.</li>
-<li>Continuous learning with measurable goals.</li>
+<li>Personalized Guidance</li>
+<li>One-to-one Interaction and mentoring</li>
+<li>Personality Development</li>
+<li>Skill Enhancement & Leadership Development</li>
+<li>Defining career path and Goal Setting</li>
 </ul>
 </div>
 </div>
@@ -265,26 +360,35 @@
 </div>
 </section>
 <!-- Contact -->
-<form action="https://formsubmit.co/prithvixzzz@gmail.com" method="POST" id="contact-form" class="grid grid-cols-1 gap-y-6">
+<section id="contact">
+<div class="container">
+<h2>Get in Touch</h2>
+<p class="sub">Reach out to start your mentorship journey</p>
+<form action="https://formsubmit.co/prithvixzzz@gmail.com" method="POST" id="contact-form">
     <input type="hidden" name="_captcha" value="false">
-    <div>
-        <label for="name" class="sr-only">Full name</label>
-        <input type="text" name="name" id="name" required placeholder="Full name"
-            class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 bg-[var(--card)] border-[var(--border)] rounded-md focus:ring-[var(--primary)] focus:border-[var(--primary)] text-[var(--text)]">
+    <div style="margin-bottom: 16px;">
+        <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500;">Full name</label>
+        <input type="text" name="name" id="name" required placeholder="Full name" style="width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.14); background: #0c1016; color: var(--text);">
+    </div>
+    <div style="margin-bottom: 16px;">
+        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
+        <input id="email" name="email" type="email" required placeholder="Email address" style="width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.14); background: #0c1016; color: var(--text);">
+    </div>
+    <div style="margin-bottom: 16px;">
+        <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500;">Message</label>
+        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your goals and how we can help..." style="width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,.14); background: #0c1016; color: var(--text); min-height: 120px;"></textarea>
     </div>
     <div>
-        <label for="email" class="sr-only">Email</label>
-        <input id="email" name="email" type="email" required placeholder="Email address"
-            class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 bg-[var(--card)] border-[var(--border)] rounded-md focus:ring-[var(--primary)] focus:border-[var(--primary)] text-[var(--text)]">
-    </div>
-    <div>
-        <label for="message" class="sr-only">Message</label>
-        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project..."
-            class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 bg-[var(--card)] border-[var(--border)] rounded-md focus:ring-[var(--primary)] focus:border-[var(--primary)] text-[var(--text)]"></textarea>
-    </div>
-    <div>
-        <button type="submit" class="w-full justify-center py-4 px-6 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[var(--primary)] hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary)] ring-offset-[var(--bg)]">Send Message</button>
+        <button type="submit" style="width: 100%; padding: 14px 20px; background: var(--brand); color: white; border: none; border-radius: 12px; font-weight: 600; font-size: 16px; cursor: pointer;">Send Message</button>
     </div>
 </form>
+</div>
+</section>
+</main>
+<footer>
+<div class="container">
+<p>© 2023 Dr. Chandra B. Kumar. All rights reserved.</p>
+</div>
+</footer>
 </body>
 </html>
