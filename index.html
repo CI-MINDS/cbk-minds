@@ -10,6 +10,439 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
 
+
+
+/* Container for the animated text */
+        .animated-text-container {
+            /* Text styling */
+            font-weight: 100; /* Extra bold */
+            font-size: 3vw; /* Responsive font size */
+            text-transform: uppercase;
+            text-align: center;
+            
+            /* The magic for the gradient text */
+            background: linear-gradient(90deg, #f87171, #fb923c, #facc15, #4ade80, #38bdf8, #a78bfa, #f472b6, #f87171);
+            background-size: 200% auto; /* Make the gradient larger than the container to allow movement */
+            
+            color: transparent; /* Make the actual text color transparent */
+            -webkit-background-clip: text; /* Clip the background to the text shape (for Chrome/Safari) */
+            background-clip: text; /* Standard property */
+            
+            /* Applying the animations */
+            /* 1. 'gradient-flow' moves the background gradient */
+            /* 2. 'glow' creates a pulsing shadow effect */
+            animation: gradient-flow 8s linear infinite, glow 2.5s ease-in-out infinite alternate;
+        }
+
+        /* Keyframes for the gradient flow animation */
+        @keyframes gradient-flow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+        
+        /* Keyframes for the glowing effect */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.1);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(74, 222, 128, 0.5), 0 0 30px rgba(56, 189, 248, 0.4);
+            }
+        }
+        
+        /* Media query for smaller screens to adjust font size */
+        @media (max-width: 768px) {
+            .animated-text-container {
+                font-size: 12vw;
+            }
+        }
+
+
+
+
+
+   body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0d11;
+      color: #fff;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    :root{
+      --bg:#0b0d11;
+      --card:#11141a;
+      --text:#e8eef6;
+      --muted:#a9b4c3;
+      --brand:#4da3ff;
+      --brand-2:#8ad0ff;
+      --ok:#25c59c;
+      --warn:#f5c14b;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      background: 
+        radial-gradient(circle at 15px 15px, rgba(255,255,255,0.03) 1.5px, transparent 1px),
+        linear-gradient(180deg,#0a0c10 0%,#0e1218 60%,#0b0d11 100%);
+      background-size: 30px 30px, 100% 100%;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.6;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 15px 15px, rgba(255,255,255,0.03) 1.5px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: -1;
+    }
+    a{color:var(--brand);text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,13,17,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:.3px}
+    .logo-mark{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 200deg, var(--brand), var(--brand-2));box-shadow:0 6px 20px rgba(77,163,255,.35)}
+    .menu{display:flex;gap:20px;align-items:center}
+    .menu a{color:var(--muted);font-weight:500}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(77,163,255,.18),rgba(77,163,255,.08));color:var(--text);font-weight:600;box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px);}
+    .btn.secondary{background:transparent;color:var(--text)}
+    .hero{padding:40px 0 31px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+    .eyebrow{display:inline-block;padding:10px 19px;border-radius:999px;color:var(--brand-2);font-weight:600;background:rgba(141,208,255,.08)}
+    .slideshow-container {position: relative;height: auto;min-height: 200px;margin: 0;overflow: hidden;}
+    .slideshow {position: relative;height: 100%;}
+    .slideshow span {position: absolute;opacity: 0;width: 100%;text-align: left;animation: slideFade 16s infinite;font-size: 44px;line-height: 1.15;letter-spacing: -0.5px;margin: 0;}
+    .slideshow span:nth-child(1) { animation-delay: 0s; }
+    .slideshow span:nth-child(2) { animation-delay: 4s; }
+    .slideshow span:nth-child(3) { animation-delay: 8s; }
+    .slideshow span:nth-child(4) { animation-delay: 12s; }
+    @keyframes slideFade {
+      0% { opacity: 0; transform: translateY(30px); }
+      5% { opacity: 1; transform: translateY(0); }
+      25% { opacity: 1; transform: translateY(0); }
+      30% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 0; }
+    }
+    .lead{font-size:18px;color:var(--muted);max-width:60ch}
+    .cta{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+    .stat{padding:18px;text-align:center}
+    .stat h3{margin:0;font-size:28px}
+    .stat p{margin:6px 0 0;color:var(--muted)}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(141,208,255,.1);border:1px solid rgba(141,208,255,.25);color:#d9f0ff;font-weight:600}
+    section{padding:56px 0}
+    h2{font-size:30px;margin:0 0 10px}
+    .sub{color:var(--muted);margin:0 0 22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .item{padding:18px}
+    .item h4{margin:0 0 8px}
+    .pill{display:inline-block;margin:6px 6px 0 0;padding:8px 12px;border-radius:999px;background:#0d1219;border:1px solid rgba(255,255,255,.08);color:var(--muted);font-weight:600}
+    .profile{display:grid;grid-template-columns:.7fr 1.3fr;gap:22px;align-items:start}
+    .profile .card{padding:22px}
+    .quote{font-style:italic;color:#d7e8ff}
+    form{display:grid;gap:12px}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:#0c1016;color:var(--text)}
+    textarea{min-height:120px;resize:vertical}
+    .small{color:var(--muted);font-size:14px}
+    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+    @keyframes shiny-breathing {
+      0% {box-shadow: 0 0 5px rgba(141, 208, 255, 0.4), 0 0 10px rgba(141, 208, 255, 0.2);background-position: 0% 50%;}
+      50% {box-shadow: 0 0 15px rgba(141, 208, 255, 0.8), 0 0 25px rgba(141, 208, 255, 0.5);background-position: 100% 50%;}
+      100% {box-shadow: 0 0 5px rgba(141, 208, 255, 0.4), 0 0 10px rgba(141, 208, 255, 0.2);background-position: 0% 50%;}
+    }
+    .badge {animation: shiny-breathing 3s infinite ease-in-out;background-size: 200% auto;background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);}
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .grid-4{grid-template-columns:1fr 1fr}
+      .profile{grid-template-columns:1fr}
+      .slideshow span {font-size: 38px;}
+    }
+    @media (max-width:640px){
+      .grid-3,.grid-4{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr}
+      .menu { gap: 12px; }
+      .menu a { font-size: 14px; }
+      .hero { padding: 40px 0 20px; }
+      section { padding: 10px 0; }
+      .slideshow span {font-size: 32px;line-height: 1.2;}
+      .lead {font-size: 16px;}
+    }
+    @media (max-width:480px){
+      .slideshow span {font-size: 28px;line-height: 1.3;}
+      .stats {grid-template-columns: 1fr;}
+      .cta {flex-direction: column;align-items: stretch;}
+      .btn {width: 100%;text-align: center;}
+    }
+  </style>
+</head>
+<body>
+<header>
+<div class="container nav"> <a href=https://ci-minds.github.io/cbk-minds/>  <div class="animated-text-container">
+        <font stye=" 'Inter', sans-serif">CBKMINDS</font>
+    </div>
+<nav aria-label="Primary" class="menu">
+<a href="#about">About</a>
+<a href="#elements">Services</a>
+<a href="#benefits">Benefits</a>
+<a href="#focus2025">Transformation</a>
+<a class="btn" href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+<main>
+  
+<!-- Hero -->
+<section class="hero">
+<div class="container hero-grid">
+<div>
+  <a href=https://ci-minds.github.io/cbk-minds/> <img src="logo.png" width =300 alt="Dr. Chandra B. Kumar Logo"></a>
+<span class="eyebrow">One-to-One Career Mentorship</span><br>
+<div class="slideshow-container">
+  <h1 class="slideshow">
+    <span>Personalized guidance for accelerated growth, skills, and a clearer career path.</span>
+    <span>Unlock your potential with tailored one-to-one mentorship.</span>
+    <span>Build confidence, clarity, and career acceleration.</span>
+    <span>20+ years of mentorship excellence, 1.5 lakh+ students guided globally.</span>
+  </h1>
+</div>
+<p class="lead">Dr. Chandra B. Kumar has dedicated <strong>20+ years</strong> to mentoring and guiding <strong>1.5 lakh+ students</strong> globally. Get tailored advice aligned with your goals and challenges.</p>
+<div class="cta">
+<a class="btn" href="#contact">Book 1:1 Mentorship</a>
+<a class="btn secondary" href="mailto:prithvixzzz@gmail.com?subject=Inquiry%20for%20One-to-One%20Mentorship&amp;body=Hi%20Dr.%20Kumar%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20mentorship.%0AName%3A%20%0AEmail%3A%20%0APhone%3A%20%0AGoals%3A%20%0A%0AThanks!">Email Directly</a>
+</div>
+<div class="stats">
+<div class="card stat"><h3>20+ yrs</h3><p>Career Mentoring</p></div>
+<div class="card stat"><h3>1,50,000+</h3><p>Students Mentored</p></div>
+<div class="card stat"><h3>International</h3><p>Guidance </p></div>
+</div>
+</div>
+
+<div>
+
+  <iframe width="500" height="300" 
+  src="https://www.youtube.com/embed/Cbf8O0lHr5w" 
+  title="YouTube video player" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen>
+</iframe>
+   
+<div class="card" style="padding:20px">
+<span class="badge" title="Recognition"><svg aria-hidden="true" fill="none" height="6" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.39 4.84L20 7.27l-3.9 3.8.92 5.36L12 14.77l-5.02 2.66.92-5.36L4 7.27l5.61-.43L12 2z" stroke="currentColor" stroke-width="1.5"></path></svg> Proven Impact</span>
+<h2 style="margin-top:14px">What you get</h2>
+<ul class="small">
+<li>Personalized Guidance</li>
+<li>One-to-one Interaction and mentoring</li>
+<li>Personality Development</li>
+<li>Skill Enhancement </li>
+<li>Leadership Development</li>
+<li>Defining career path </li>
+<li>Choosing the right career path or higher education</li>
+<li>Goal Setting</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About / Profile -->
+<section id="about">
+<div class="container profile">
+<div class="card">
+<h2>Dr. Chandra B. Kumar</h2>
+<p class="sub">My mission is simple: to motivate, mentor, and guide individuals toward meaningful growth, professional opportunities, and lifelong success.</p>
+  <p class="quote">"Mentorship = A trusted guide helping you grow in the right direction."</p>
+</div>
+<div class="card">
+<h3>Expertise Snapshot</h3>
+<div class="grid-4">
+<div class="item"><h4>Career Guidance</h4><p class="small">Clear roadmaps and decision support.</p></div>
+<div class="item"><h4>Leadership</h4><p class="small">Lead with confidence and influence.</p></div>
+<div class="item"><h4>Talent Dev.</h4><p class="small">Identify strengths and close gaps.</p></div>
+<div class="item"><h4>Knowledge Transfer</h4><p class="small">Actionable frameworks and playbooks.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="gallery-container">
+    <h2>Photo Gallery</h2>
+    <div class="gallery">
+      <img src="photo1.jpg" alt="Photo 1">
+      <img src="photo2.jpg" alt="Photo 2">
+      <img src="photo3.jpg" alt="Photo 3">
+      <img src="photo4.jpg" alt="Photo 4">
+      <img src="photo5.jpg" alt="Photo 5">
+      <img src="photo6.jpg" alt="Photo 6">
+<img src="photo7.jpg" alt="Photo 6">
+<img src="photo8.jpg" alt="Photo 6">
+<img src="photo9.jpg" alt="Photo 6">
+<img src="photo10.jpg" alt="Photo 6">
+<img src="photo11.jpg" alt="Photo 6">
+<img src="photo12.jpg" alt="Photo 6">
+<img src="photo13.jpg" alt="Photo 6">
+<img src="photo14.jpg" alt="Photo 6">
+<img src="photo15.jpg" alt="Photo 6">
+<img src="photo16.jpg" alt="Photo 6">
+<img src="photo17.jpg" alt="Photo 6">
+<img src="photo18.jpg" alt="Photo 6">
+<img src="photo19.jpg" alt="Photo 6">
+<img src="photo20.jpg" alt="Photo 6">
+<img src="photo21.jpg" alt="Photo 6">
+<img src="photo22.jpg" alt="Photo 6">
+<img src="photo23.jpg" alt="Photo 6">
+<img src="photo24.jpg" alt="Photo 6">
+<img src="photo25.jpg" alt="Photo 6">
+<img src="photo26.jpg" alt="Photo 6">
+<img src="photo27.jpg" alt="Photo 6">
+<img src="photo28.jpg" alt="Photo 6">
+    </div>
+  </div>
+
+<!-- Key Elements -->
+ 
+<section id="elements">
+<div class="container">
+  
+<h2>Key Elements of One-to-One Mentorship</h2>
+<p class="sub">Accelerated growth • Skill enhancement • Clearer career paths</p>
+<div class="grid-4">
+<div class="card item"><h4>1) Personalized Focus</h4><p class="small">Tailored plans aligned to your goals.</p></div>
+<div class="card item"><h4>2) Personal Fulfillment</h4><p class="small">Find meaningful direction.</p></div>
+<div class="card item"><h4>3) Guidance &amp; Support</h4><p class="small">Ongoing feedback and clarity.</p></div>
+<div class="card item"><h4>4) Goal-Oriented</h4><p class="small">Milestones with outcomes tracked.</p></div>
+<div class="card item"><h4>5) Leadership Dev.</h4><p class="small">Grow executive presence.</p></div>
+<div class="card item"><h4>6) Network Expansion</h4><p class="small">Access to relevant circles.</p></div>
+<div class="card item"><h4>7) Recognition</h4><p class="small">Positioning, portfolio, and visibility.</p></div>
+<div class="card item"><h4>8) Continuous Learning</h4><p class="small">Iterate with feedback loops.</p></div>
+<div class="card item"><h4>9) Talent Development</h4><p class="small">Upskill with structured practice.</p></div>
+<div class="card item"><h4>10) Knowledge Transfer</h4><p class="small">Tools, templates, and frameworks.</p></div>
+</div>
+</div>
+</section>
+<!-- Benefits -->
+<section id="benefits">
+<div class="container">
+<h2>Benefits for the Mentee</h2>
+<div class="grid-3">
+<div class="card item"><h4>Valuable Insight</h4><p class="small">Direct access to 20 years of experience and proven strategies.</p></div>
+<div class="card item"><h4>Skill Growth</h4><p class="small">Practical upskilling plans and weekly checkpoints.</p></div>
+<div class="card item"><h4>Confidence</h4><p class="small">Motivation through momentum and visible wins.</p></div>
+</div>
+</div>
+</section>
+<!-- 2025 Focus -->
+<section id="focus2025">
+<div class="container">
+<h2> Leadership Transformation</h2>
+<p class="sub">Sharpen your edge for the opportunities ahead.</p>
+<div>
+<span class="pill">Career Guidance</span>
+<span class="pill">Personalised Focus</span>
+<span class="pill">Personal Fulfillment</span>
+<span class="pill">Personality Development</span>
+<span class="pill">Leadership Development</span>
+<span class="pill">Talent Development</span>
+<span class="pill">Knowledge Transfer</span>
+</div>
+</div>
+</section>
+
+<!-- Video Section -->
+
+
+<!-- Contact -->
+<section id="contact">
+<div class="container">
+<h2>Get in Touch</h2>
+<p class="sub">Reach out to start your mentorship journey</p>
+<form action="https://formsubmit.co/prithvixzzz@gmail.com" method="POST" id="contact-form">
+    <input type="hidden" name="_captcha" value="false">
+    <div style="margin-bottom: 16px;">
+        <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500;">Full name</label>
+        <input type="text" name="name" id="name" required placeholder="Full name">
+    </div>
+    <div style="margin-bottom: 16px;">
+        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
+        <input id="email" name="email" type="email" required placeholder="Email address">
+    </div>
+    <div style="margin-bottom: 16px;">
+        <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500;">Message</label>
+        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your goals and how we can help..."></textarea>
+    </div>
+    <div>
+        <button type="submit" style="width: 100%; padding: 14px 20px; background: var(--brand); color: white; border: none; border-radius: 12px; font-weight: 600; font-size: 16px; cursor: pointer;">Send Message</button>
+    </div>
+</form>
+</div>
+</section>
+
+</main>
+<footer>
+<div class="container">
+<p>© 2025 Dr. Chandra B. Kumar. All rights reserved.</p>
+</div>
+</footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Dr. Chandra B. Kumar — One-to-One Career Mentorship</title>
+<meta content="Personalized one-to-one career mentorship by Dr. Chandra B. Kumar — 20 years of excellence, 1.5 lakh+ students guided globally." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+
    body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -333,5 +766,6 @@
 </footer>
 </body>
 </html>
+
 
 
